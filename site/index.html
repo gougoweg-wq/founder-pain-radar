@@ -1,0 +1,227 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<title>Founder Pain Radar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: radar chart beside a ranked evidence list; startup concept below; method note last. */
+:root{
+  --bg:#EDF2F5; --panel:#FFFFFF; --ink:#10212B; --muted:#4F6370; --line:#C9D6DE;
+  --signal:#0B6B8A; --hot:#C2410C; --ring:#B7C7D1; --soft:#DDE8EE;
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1A21; --panel:#15262F; --ink:#E6EEF2; --muted:#9BB0BC; --line:#2A404C;
+  --signal:#5CC3E0; --hot:#FF8A57; --ring:#33505E; --soft:#1C3340; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1A21; --panel:#15262F; --ink:#E6EEF2; --muted:#9BB0BC; --line:#2A404C;
+  --signal:#5CC3E0; --hot:#FF8A57; --ring:#33505E; --soft:#1C3340; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-block:32px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.7rem;font-weight:800}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0}
+.tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{max-width:62ch;font-size:1.1rem;color:var(--muted);margin-top:16px}
+header{display:flex;flex-direction:column;gap:12px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--f-mono);font-size:.85rem;margin-top:16px}
+.stats b{color:var(--signal);font-weight:500}
+.main{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:32px;align-items:start}
+@media(max-width:820px){.main{grid-template-columns:minmax(0,1fr)}}
+.radar{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;position:sticky;top:16px}
+@media(max-width:820px){.radar{position:static}}
+.radar svg{display:block;width:100%;height:auto}
+.radar p{font-size:.8rem;color:var(--muted);margin-top:8px}
+.list{display:flex;flex-direction:column;gap:12px;min-width:0}
+details{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible,a:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.rank{width:32px;height:32px;border-radius:50%;background:var(--signal);color:var(--bg);display:grid;place-items:center;font-family:var(--f-mono);font-weight:500}
+details.first .rank{background:var(--hot)}
+.count{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);white-space:nowrap}
+.body{padding:0 16px 16px 64px;display:flex;flex-direction:column;gap:10px}
+@media(max-width:520px){.body{padding-left:16px}}
+.body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.body a{color:var(--signal)}
+.read{color:var(--muted);font-size:.95rem}
+.idea{background:var(--ink);color:var(--bg);border-radius:6px;padding:clamp(20px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+@media(max-width:720px){.idea{grid-template-columns:minmax(0,1fr)}}
+.idea .tag{color:var(--bg);opacity:.7}
+.idea h2{margin:8px 0 12px}
+.idea ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.method{font-size:.9rem;color:var(--muted);max-width:70ch;display:flex;flex-direction:column;gap:8px}
+.method code{font-family:var(--f-mono);font-size:.85em}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="tag">Founder Pain Radar · week ending 22 Oct 2026</span>
+    <h1>What small-business owners are struggling with right now</h1>
+    <p class="lede">I read the week's top posts from r/Entrepreneur and r/smallbusiness and grouped each one by the problem it describes. The closer a dot sits to the centre, the more posts it has.</p>
+    <div class="stats" id="stats"><span><b>20</b> posts read</span><span><b>6</b> problem groups</span><span><b>2</b> subreddits</span></div>
+  </header>
+
+  <div class="main">
+    <figure class="radar" style="margin:0">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Radar chart of six founder problem groups, ranked by number of posts">
+        <g fill="none" stroke="var(--ring)" stroke-width="1">
+          <circle cx="200" cy="200" r="50"/><circle cx="200" cy="200" r="80"/><circle cx="200" cy="200" r="110"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="170"/>
+          <line x1="200" y1="30" x2="200" y2="370"/><line x1="53" y1="115" x2="347" y2="285"/><line x1="53" y1="285" x2="347" y2="115"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)">
+          <text x="253" y="196">5</text><text x="283" y="196">4</text><text x="313" y="196">3</text><text x="343" y="196">2</text><text x="373" y="196">1</text>
+        </g>
+        <g id="dots" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" text-anchor="middle" fill="var(--bg)">
+          <circle cx="200" cy="150" r="15" fill="var(--hot)"/><text x="200" y="155">1</text>
+          <circle cx="269" cy="160" r="15" fill="var(--signal)"/><text x="269" y="165">2</text>
+          <circle cx="269" cy="240" r="15" fill="var(--signal)"/><text x="269" y="245">3</text>
+          <circle cx="200" cy="310" r="15" fill="var(--signal)"/><text x="200" y="315">4</text>
+          <circle cx="79" cy="270" r="15" fill="var(--signal)"/><text x="79" y="275">5</text>
+          <circle cx="79" cy="130" r="15" fill="var(--signal)"/><text x="79" y="135">6</text>
+        </g>
+      </svg>
+      <p>Ring numbers show how many of the 20 posts fall in a group.</p>
+    </figure>
+
+    <div class="list" id="list">
+      <details class="first" open>
+        <summary><span class="rank">1</span><h3>Platforms and payment providers acting against owners</h3><span class="count">5 posts</span></summary>
+        <div class="body">
+          <p class="read">Accounts frozen, surprise charges, new terms nobody was told about, and chargebacks that leave the merchant proving they earned the money.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1xbleck/why_do_companies_change_when_they_start_making/">Why do companies change when they start making big money?</a> (account shut with no explanation)</li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1xa7638/meta_gave_itself_permission_to_create_accounts_on/">Meta's updated commercial terms, effective Oct 30</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1x7z4q8/when_did_credit_card_companies_become_judge_and/">Chargebacks crushing small businesses</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1xba36k/warning_to_small_business_owners_4000_in/">$4,000 in unexpected Yelp charges</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1x8mkex/square/">$10,000 appears in a Square account</a></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="rank">2</span><h3>Managing people and what they cost</h3><span class="count">4 posts</span></summary>
+        <div class="body">
+          <p class="read">Idle staff between projects, a new manager hurting morale, awkward customer incidents, and health insurance at $2,450 a month.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x9ygdv/how_do_you_keep_good_employees_when_theres_not/">Keeping good employees when there isn't enough work</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x9q1bn/how_do_you_handle_a_new_manager_whos_hurting/">A new manager is hurting morale</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1xboyqm/update_got_a_complaint_today_because_my_employee/">Employee confronted a customer</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1xc0xgz/small_business_owners_with_fewer_than_10/">Health insurance for fewer than 10 employees</a></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="rank">3</span><h3>Doubt and isolation</h3><span class="count">4 posts</span></summary>
+        <div class="body">
+          <p class="read">Owners asking whether they are making progress, dipping into savings, or looking for a place where founders talk to each other.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1xaf9c0/i_dont_know_anymore/">"I don't know anymore"</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x7zxf8/yall_feel_like_you_dont_make_progress_fast_enough/">Not making progress fast enough</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1x7pcc5/business_ownership_isnt_for_those_who_cant_handle/">Living on the edge as an owner</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x8dvo0/a_big_piece_of_the_industrial_revolution_came_out/">A founder dinner party, like the Lunar Society</a></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="rank">4</span><h3>Being visible without a marketing team</h3><span class="count">3 posts</span></summary>
+        <div class="body">
+          <p class="read">Too many social accounts to run, introverts asked to be the face of the brand, and PR advice aimed at owners.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x75sxz/how_do_i_maximize_social_media_for_multiple/">Social media for multiple businesses</a></li>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1x6nxqd/introverts_who_run_a_business_how_did_you_get/">Introverts running a business</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1xbnrho/5_ways_to_become_industry_famous/">5 ways to become industry famous</a></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="rank">5</span><h3>Getting paid and keeping processes simple</h3><span class="count">2 posts</span></summary>
+        <div class="body">
+          <p class="read">A client who will not pay for a 12-hour job, and owners who added tools when they should have removed steps.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1x8gdb3/client_will_not_pay/">Client will not pay</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x6mf9r/whats_one_business_process_you_wish_youd/">One process you wish you'd simplified earlier</a></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="rank">6</span><h3>Planning money before the big moment</h3><span class="count">2 posts</span></summary>
+        <div class="body">
+          <p class="read">A founder who sold after 16 years and wished tax planning had started earlier, and an agency that tripled revenue but grew profit about 7x.</p>
+          <ul>
+            <li><a href="https://reddit.com/r/smallbusiness/comments/1xbntha/i_sold_my_company_after_16_years_biggest_regret/">Selling after 16 years: the tax regret</a></li>
+            <li><a href="https://reddit.com/r/Entrepreneur/comments/1x9uh5m/how_helped_scale_a_travel_agency_from_3000_to/">Travel agency from $3,000 to $20,000 monthly profit</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="idea">
+    <div>
+      <span class="tag">Startup concept from problem 1</span>
+      <h2>Account Lifeboat</h2>
+      <p>A service for owners who depend on Stripe, Square, Shopify, Meta or Yelp for income. It keeps a dated record of every account's settings, charges and terms, so when something is frozen or changes, the owner already has the evidence and a ready-to-send appeal.</p>
+    </div>
+    <ol>
+      <li>Watches billing and terms pages for the accounts the owner connects, and flags changes such as new fees or new data-access clauses.</li>
+      <li>Alerts when an unexpected charge or deposit appears, with a checklist for what to do first.</li>
+      <li>Stores receipts, delivery proof and messages for each sale, so chargeback replies take minutes.</li>
+      <li>Drafts the appeal letter and names the right escalation route for each provider.</li>
+    </ol>
+  </section>
+
+  <section class="method">
+    <h3>How this was made</h3>
+    <p>Posts come from the public RSS feeds of r/Entrepreneur and r/smallbusiness (top of the week, 10 each, fetched 22 Oct 2026 through a Reddit connector). The feeds do not include upvotes or comment counts, so groups are ranked by how many posts fall in them, not by popularity. Each post went in one group by my reading of its main complaint. Twenty posts is a small sample, so treat the ranking as a signal to investigate. A Google Trends check of US trending terms the same day showed nothing related to small business, so it is not used here.</p>
+  </section>
+</div>
+
+<script>
+/* Live mode: replace the saved snapshot with fresh posts from the local server. */
+(function () {
+  var SLOTS = ['platform', 'team', 'doubt', 'visibility', 'paid', 'money'];
+  var reads = {
+    platform: 'Frozen accounts, surprise charges, new terms and chargebacks.',
+    team: 'Staff, managers, morale and the cost of employing people.',
+    doubt: 'Owners unsure of progress or looking for other founders.',
+    visibility: 'Social accounts, personal brand and PR without a marketing team.',
+    paid: 'Clients who do not pay, and process and tool sprawl.',
+    money: 'Tax, profit and cash planning before a big event.',
+    other: 'Posts that matched none of the groups.'
+  };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
+  function render(d) {
+    var groups = d.groups.filter(function (g) { return g.count > 0; })
+      .sort(function (a, b) { return b.count - a.count; });
+    var rank = {};
+    groups.forEach(function (g, i) { rank[g.key] = i + 1; });
+    document.getElementById('stats').innerHTML =
+      '<span><b>' + d.total + '</b> posts read</span><span><b>' + groups.length + '</b> problem groups</span>' +
+      '<span><b>2</b> subreddits</span><span>updated <b>' + esc(d.fetched_at) + '</b></span>';
+    document.getElementById('list').innerHTML = groups.map(function (g, i) {
+      return '<details' + (i === 0 ? ' class="first" open' : '') + '><summary><span class="rank">' + (i + 1) +
+        '</span><h3>' + esc(g.label) + '</h3><span class="count">' + g.count + ' post' + (g.count > 1 ? 's' : '') +
+        '</span></summary><div class="body"><p class="read">' + esc(reads[g.key] || '') + '</p><ul>' +
+        g.posts.map(function (p) { return '<li><a href="' + esc(p.url) + '">' + esc(p.title) + '</a> <span class="read">r/' + esc(p.subreddit) + '</span></li>'; }).join('') +
+        '</ul></div></details>';
+    }).join('');
+    var dots = '';
+    d.groups.forEach(function (g) {
+      var i = SLOTS.indexOf(g.key);
+      if (i < 0 || !g.count) return;
+      var ang = (-90 + i * 60) * Math.PI / 180, r = 170 - (Math.min(g.count, 5) - 1) * 30;
+      var x = (200 + r * Math.cos(ang)).toFixed(1), y = (200 + r * Math.sin(ang)).toFixed(1);
+      dots += '<circle cx="' + x + '" cy="' + y + '" r="15" fill="var(' + (rank[g.key] === 1 ? '--hot' : '--signal') + ')"/><text x="' + x + '" y="' + (+y + 5) + '">' + rank[g.key] + '</text>';
+    });
+    document.getElementById('dots').innerHTML = dots;
+  }
+  fetch('/api/posts').then(function (r) { return r.json(); }).then(function (d) {
+    if (d.total) render(d);
+  }).catch(function () { /* keep the saved snapshot */ });
+})();
+</script>
+</body></html>

@@ -1,0 +1,178 @@
+{
+  "fetched_at": "2026-10-22 14:37:43",
+  "total": 20,
+  "errors": [
+    "r/smallbusiness: HTTP Error 429: Too Many Requests (showing last good copy)"
+  ],
+  "groups": [
+    {
+      "key": "platform",
+      "label": "Platforms and payment providers acting against owners",
+      "count": 6,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "Why do companies change when they start making big money?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1xbleck/why_do_companies_change_when_they_start_making/",
+          "group": "platform"
+        },
+        {
+          "subreddit": "Entrepreneur",
+          "title": "How do I maximize social media for multiple businesses/projects",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x75sxz/how_do_i_maximize_social_media_for_multiple/",
+          "group": "platform"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Meta gave itself permission to create accounts on your website and read private content, effective Oct 30",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1xa7638/meta_gave_itself_permission_to_create_accounts_on/",
+          "group": "platform"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "When did credit card companies become judge and jury? Small businesses are getting crushed by chargebacks.",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1x7z4q8/when_did_credit_card_companies_become_judge_and/",
+          "group": "platform"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Warning to Small Business Owners: $4,000 in Unexpected Yelp Charges",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1xba36k/warning_to_small_business_owners_4000_in/",
+          "group": "platform"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Square",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1x8mkex/square/",
+          "group": "platform"
+        }
+      ]
+    },
+    {
+      "key": "team",
+      "label": "Managing people and what they cost",
+      "count": 4,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "How do you keep good employees when there’s not enough work for everyone?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x9ygdv/how_do_you_keep_good_employees_when_theres_not/",
+          "group": "team"
+        },
+        {
+          "subreddit": "Entrepreneur",
+          "title": "How do you handle a new manager who’s hurting morale when the team is performing well?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x9q1bn/how_do_you_handle_a_new_manager_whos_hurting/",
+          "group": "team"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "UPDATE: Got a complaint today because my employee ‘told off’ a customer for sitting without ordering. Need advice.",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1xboyqm/update_got_a_complaint_today_because_my_employee/",
+          "group": "team"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Small business owners with fewer than 10 employees, are you offering health insurance or is it just too expensive?",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1xc0xgz/small_business_owners_with_fewer_than_10/",
+          "group": "team"
+        }
+      ]
+    },
+    {
+      "key": "doubt",
+      "label": "Doubt and isolation",
+      "count": 2,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "I don’t know anymore",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1xaf9c0/i_dont_know_anymore/",
+          "group": "doubt"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Business ownership isn't for those who can't handle living on the edge",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1x7pcc5/business_ownership_isnt_for_those_who_cant_handle/",
+          "group": "doubt"
+        }
+      ]
+    },
+    {
+      "key": "visibility",
+      "label": "Being visible without a marketing team",
+      "count": 2,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "5 Ways to Become Industry Famous",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1xbnrho/5_ways_to_become_industry_famous/",
+          "group": "visibility"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "Introverts who run a business, how did you get comfortable being the face of it?",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1x6nxqd/introverts_who_run_a_business_how_did_you_get/",
+          "group": "visibility"
+        }
+      ]
+    },
+    {
+      "key": "paid",
+      "label": "Getting paid and keeping processes simple",
+      "count": 3,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "What's one business process you wish you'd simplified earlier?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x6mf9r/whats_one_business_process_you_wish_youd/",
+          "group": "paid"
+        },
+        {
+          "subreddit": "Entrepreneur",
+          "title": "Y'all feel like you don't make progress fast enough?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x7zxf8/yall_feel_like_you_dont_make_progress_fast_enough/",
+          "group": "paid"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "CLIENT WILL NOT PAY",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1x8gdb3/client_will_not_pay/",
+          "group": "paid"
+        }
+      ]
+    },
+    {
+      "key": "money",
+      "label": "Planning money before the big moment",
+      "count": 2,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "How helped scale a travel agency from $3,000 to $20,000 in monthly profits within 6 months",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x9uh5m/how_helped_scale_a_travel_agency_from_3000_to/",
+          "group": "money"
+        },
+        {
+          "subreddit": "smallbusiness",
+          "title": "I sold my company after 16 years. Biggest regret: not thinking about taxes until after closing.",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1xbntha/i_sold_my_company_after_16_years_biggest_regret/",
+          "group": "money"
+        }
+      ]
+    },
+    {
+      "key": "other",
+      "label": "Everything else",
+      "count": 1,
+      "posts": [
+        {
+          "subreddit": "Entrepreneur",
+          "title": "A big piece of the Industrial Revolution came out of a monthly dinner party. What’s the version of that for founders today?",
+          "url": "https://www.reddit.com/r/Entrepreneur/comments/1x8dvo0/a_big_piece_of_the_industrial_revolution_came_out/",
+          "group": "other"
+        }
+      ]
+    }
+  ]
+}
